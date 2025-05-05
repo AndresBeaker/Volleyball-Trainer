@@ -1,14 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volleyball Trainer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Volleyball Trainer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f0f4f8;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background-color: #3b82f6;
+      color: white;
+      padding: 1.5rem 0;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .menu {
+      margin: 2rem auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .card {
+      background: white;
+      padding: 1.5rem;
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #3b82f6;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
-    
-Hola a todos ¡SPOILER!</h1> 
-<p>Ayuda no se hacer sitios web</p>
+
+  <header>
+    <h1>🏐 Volleyball Trainer</h1>
+    <p>Entrena como un profesional, estilo Duolingo.</p>
+  </header>
+
+  <main class="menu">
+    <div class="card">
+      <h2>Fundamentos</h2>
+      <p>Aprende posiciones, rotaciones y técnicas básicas.</p>
+      <a href="#" class="btn">Empezar</a>
+    </div>
+
+    <div class="card">
+      <h2>Test de Reacción</h2>
+      <p>Practica tu velocidad mental y reflejos de juego.</p>
+      <a href="#" class="btn">Jugar</a>
+    </div>
+
+    <div class="card">
+      <h2>Quiz de Voleibol</h2>
+      <p>¿Sabes las reglas? ¡Pon a prueba tu conocimiento!</p>
+      <a href="#" class="btn">Iniciar Quiz</a>
+    </div>
+  </main>
 
 </body>
 </html>
