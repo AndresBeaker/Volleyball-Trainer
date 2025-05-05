@@ -70,31 +70,34 @@
       <a href="#" class="btn">Jugar</a>
     </div>
    
-    <div class="card" id="quiz-card">
+    <div class="card">
         <h2>Quiz de Voleibol</h2>
-        <p id="pregunta">¿Sabes las reglas? ¡Pon a prueba tu conocimiento!</p>
-        
-        <div id="opciones" style="display: none;">
+        <p class="pregunta">¿Sabes las reglas? ¡Pon a prueba tu conocimiento!</p>
+      
+        <div class="opciones" style="display: none;">
           <button onclick="verificarRespuesta(this)" data-correct="false">Central</button>
-          <button onclick="verificarRespuesta(this)" data-correct="true">Libero</button>
+          <button onclick="verificarRespuesta(this)" data-correct="true">Líbero</button>
           <button onclick="verificarRespuesta(this)" data-correct="false">Opuesto</button>
           <button onclick="verificarRespuesta(this)" data-correct="false">Armador</button>
         </div>
       
-        <p id="resultado"></p>
-        <a href="#" class="btn" onclick="iniciarQuiz()">Iniciar Quiz</a>
+        <p class="resultado"></p>
+        <a href="#" class="btn" onclick="iniciarQuiz(this)">Iniciar Quiz</a>
       </div>
       
+      
       <script>
-        function iniciarQuiz() {
-          document.getElementById("pregunta").textContent = "¿Cuál es la posición que recibe el saque?";
-          document.getElementById("opciones").style.display = "block";
-          document.querySelector(".btn").style.display = "none"; // Oculta el botón
+        function iniciarQuiz(elemento) {
+          const card = elemento.closest(".card");
+          card.querySelector(".pregunta").textContent = "¿Cuál es la posición que recibe el saque?";
+          card.querySelector(".opciones").style.display = "block";
+          elemento.style.display = "none";
         }
       
         function verificarRespuesta(boton) {
+          const card = boton.closest(".card");
           const esCorrecta = boton.getAttribute("data-correct") === "true";
-          const resultado = document.getElementById("resultado");
+          const resultado = card.querySelector(".resultado");
       
           if (esCorrecta) {
             resultado.textContent = "¡Correcto! 🎉";
@@ -104,11 +107,11 @@
             resultado.style.color = "red";
           }
       
-          // Desactivar todas las opciones
-          const botones = document.querySelectorAll("#opciones button");
+          const botones = card.querySelectorAll(".opciones button");
           botones.forEach(b => b.disabled = true);
         }
       </script>
+      
       
       
 </body>
