@@ -70,21 +70,25 @@
       <a href="#" class="btn">Jugar</a>
     </div>
    
-    <div class="card">
-        <h2>Quiz de Voleibol</h2>
-        <p class="pregunta">¿Sabes las reglas? ¡Pon a prueba tu conocimiento!</p>
-      
-        <div class="opciones" style="display: none;">
-          <button onclick="verificarRespuesta(this)" data-correct="false">Central</button>
-          <button onclick="verificarRespuesta(this)" data-correct="true">Líbero</button>
-          <button onclick="verificarRespuesta(this)" data-correct="false">Opuesto</button>
-          <button onclick="verificarRespuesta(this)" data-correct="false">Armador</button>
-        </div>
-      
-        <p class="resultado"></p>
-        <a href="#" class="btn" onclick="reiniciarQuiz(this)" style="display: none;">Intentar de nuevo</a>
-        <a href="#" class="btn" onclick="iniciarQuiz(this)">Iniciar Quiz</a>
+    <div class="opciones" style="display: none;">
+        <button class="opcion" onclick="verificarRespuesta(this)" data-correct="false">
+          <img src="img/central.png" alt="Central">
+          <span>Central</span>
+        </button>
+        <button class="opcion" onclick="verificarRespuesta(this)" data-correct="true">
+          <img src="img/libero.png" alt="Líbero">
+          <span>Líbero</span>
+        </button>
+        <button class="opcion" onclick="verificarRespuesta(this)" data-correct="false">
+          <img src="img/opuesto.png" alt="Opuesto">
+          <span>Opuesto</span>
+        </button>
+        <button class="opcion" onclick="verificarRespuesta(this)" data-correct="false">
+          <img src="img/armador.png" alt="Armador">
+          <span>Armador</span>
+        </button>
       </div>
+      
       
       
       <script>
