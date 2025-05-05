@@ -128,3 +128,9 @@ footer {
     }
   }
   
+  .seccion-con-imagen img {
+    width: 100%;
+    max-width: 300px; /* Ajusta este valor según el tamaño que necesites */
+    height: auto;
+ }
+ 
