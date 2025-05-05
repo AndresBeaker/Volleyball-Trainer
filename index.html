@@ -82,6 +82,7 @@
         </div>
       
         <p class="resultado"></p>
+        <a href="#" class="btn" onclick="reiniciarQuiz(this)" style="display: none;">Intentar de nuevo</a>
         <a href="#" class="btn" onclick="iniciarQuiz(this)">Iniciar Quiz</a>
       </div>
       
@@ -91,7 +92,9 @@
           const card = elemento.closest(".card");
           card.querySelector(".pregunta").textContent = "¿Cuál es la posición que recibe el saque?";
           card.querySelector(".opciones").style.display = "block";
-          elemento.style.display = "none";
+          elemento.style.display = "none"; // Oculta "Iniciar Quiz"
+          card.querySelector(".resultado").textContent = "";
+          card.querySelector(".resultado").style.color = "";
         }
       
         function verificarRespuesta(boton) {
@@ -109,9 +112,28 @@
       
           const botones = card.querySelectorAll(".opciones button");
           botones.forEach(b => b.disabled = true);
+      
+          // Muestra el botón "Intentar de nuevo"
+          card.querySelector('a[onclick^="reiniciarQuiz"]').style.display = "inline-block";
+        }
+      
+        function reiniciarQuiz(elemento) {
+          const card = elemento.closest(".card");
+      
+          // Restablece los textos y botones
+          card.querySelector(".pregunta").textContent = "¿Sabes las reglas? ¡Pon a prueba tu conocimiento!";
+          card.querySelector(".opciones").style.display = "none";
+          card.querySelector(".resultado").textContent = "";
+          card.querySelector(".resultado").style.color = "";
+      
+          const botones = card.querySelectorAll(".opciones button");
+          botones.forEach(b => b.disabled = false);
+      
+          // Oculta el botón de reinicio, muestra el de iniciar
+          elemento.style.display = "none";
+          card.querySelector('a[onclick^="iniciarQuiz"]').style.display = "inline-block";
         }
       </script>
-      
       
       
 </body>
