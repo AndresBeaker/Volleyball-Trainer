@@ -6,48 +6,80 @@
   <title>Volleyball Trainer</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f0f4f8;
-      color: #333;
-      text-align: center;
-    }
-    header {
-      background-color: #3b82f6;
-      color: white;
-      padding: 1.5rem 0;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    .menu {
-      margin: 2rem auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .card {
-      background: white;
-      padding: 1.5rem;
-      width: 250px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background-color: #3b82f6;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-    }
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  padding: 20px;
+}
+
+.card {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.pregunta {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.opciones {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin-top: 1rem;
+}
+
+.opcion {
+  background-color: #f4f4f4;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.opcion:hover {
+  background-color: #e0f7fa;
+  border-color: #26c6da;
+}
+
+.opcion img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.opcion span {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.btn {
+  background-color: #26c6da;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #00bcd4;
+}
   </style>
 </head>
 <body>
@@ -73,36 +105,45 @@
     <div class="card">
         <h2>Quiz de Voleibol</h2>
         <p class="pregunta">¿Sabes las reglas? ¡Pon a prueba tu conocimiento!</p>
-      
+        
+        <button class="btn" onclick="iniciarQuiz()">Iniciar Quiz</button>
+        
         <div class="opciones" style="display: none;">
-            <button class="opcion" onclick="verificarRespuesta(this)" data-correct="false">
-              <img src="img/central.png" alt="Central">
-              <span>Central</span>
-            </button>
-            <button class="opcion" onclick="verificarRespuesta(this)" data-correct="true">
-              <img src="img/libero.png" alt="Líbero">
-              <span>Líbero</span>
-            </button>
-            <button class="opcion" onclick="verificarRespuesta(this)" data-correct="false">
-              <img src="img/opuesto.png" alt="Opuesto">
-              <span>Opuesto</span>
-            </button>
-            <button class="opcion" onclick="verificarRespuesta(this)" data-correct="false">
-              <img src="img/armador.png" alt="Armador">
-              <span>Armador</span>
-            </button>
-          </div>
-      
+          <button class="opcion" onclick="verificarRespuesta(this)" data-correct="false">
+            <img src="img/central.png" alt="Central">
+            <span>Central</span>
+          </button>
+          <button class="opcion" onclick="verificarRespuesta(this)" data-correct="true">
+            <img src="img/libero.png" alt="Líbero">
+            <span>Líbero</span>
+          </button>
+          <button class="opcion" onclick="verificarRespuesta(this)" data-correct="false">
+            <img src="img/opuesto.png" alt="Opuesto">
+            <span>Opuesto</span>
+          </button>
+          <button class="opcion" onclick="verificarRespuesta(this)" data-correct="false">
+            <img src="img/armador.png" alt="Armador">
+            <span>Armador</span>
+          </button>
+        </div>
+      </div>
+      <script src="script.js"></script>
       
       <script>
-        function iniciarQuiz(elemento) {
-          const card = elemento.closest(".card");
-          card.querySelector(".pregunta").textContent = "¿Cuál es la posición que recibe el saque?";
-          card.querySelector(".opciones").style.display = "block";
-          elemento.style.display = "none"; // Oculta "Iniciar Quiz"
-          card.querySelector(".resultado").textContent = "";
-          card.querySelector(".resultado").style.color = "";
-        }
+        function iniciarQuiz() {
+  document.querySelector('.opciones').style.display = 'grid';  // Muestra las opciones
+  document.querySelector('.pregunta').innerHTML = 'Selecciona una posición para comenzar el quiz';
+}
+
+function verificarRespuesta(button) {
+  const isCorrect = button.getAttribute('data-correct') === 'true';
+  
+  if (isCorrect) {
+    alert('¡Correcto! Has seleccionado la posición correcta.');
+  } else {
+    alert('Incorrecto, intenta nuevamente.');
+  }
+}
       
         function verificarRespuesta(boton) {
           const card = boton.closest(".card");
