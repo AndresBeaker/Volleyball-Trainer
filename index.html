@@ -3,138 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Volleyball Trainer</title>
+  <title>Proyecto: Volleyball Trainer</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      line-height: 1.6;
       margin: 0;
-      background: #f0f4f8;
-      color: #333;
+      padding: 0;
+      background: #f4f4f4;
+    }
+
+    header {
+      background: #003366;
+      color: white;
+      padding: 20px 0;
       text-align: center;
     }
-    header {
-      background-color: #3b82f6;
-      color: white;
-      padding: 1.5rem 0;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    .menu {
-      margin: 2rem auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .card {
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
       background: white;
-      padding: 1.5rem;
-      width: 250px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
     }
-    .card:hover {
-      transform: translateY(-5px);
+
+    h2 {
+      color: #003366;
+      border-bottom: 2px solid #003366;
+      padding-bottom: 5px;
     }
-    .btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background-color: #3b82f6;
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    footer {
+      background: #003366;
       color: white;
-      text-decoration: none;
-      border-radius: 8px;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>🏐 Volleyball Trainer</h1>
-    <p>Entrena como un profesional, utilizando nuestra aplicación >:D.</p>
-  </header>
+<header>
+  <h1>Volleyball Trainer</h1>
+  <p>Aplicación estilo Duolingo para entrenar voleibol</p>
+</header>
 
-  <main class="menu">
-    <div class="card">
-      <h2>Fundamentos</h2>
-      <p>Aprende posiciones, rotaciones y técnicas básicas.</p>
-      <a href="#" class="btn">Empezar</a>
-    </div>
+<div class="container">
+  <section id="introduccion">
+    <h2>Introducción</h2>
+    <p>Aquí va una introducción general al proyecto y su importancia.</p>
+  </section>
 
-    <div class="card">
-      <h2>Test de Reacción</h2>
-      <p>Practica tu velocidad mental y reflejos de juego.</p>
-      <a href="#" class="btn">Jugar</a>
-    </div>
-   
-    <div class="card">
-        <h2>Quiz de Voleibol</h2>
-        <p class="pregunta">¿Sabes las reglas? ¡Pon a prueba tu conocimiento!</p>
-      
-        <div class="opciones" style="display: none;">
-          <button onclick="verificarRespuesta(this)" data-correct="false">Central</button>
-          <button onclick="verificarRespuesta(this)" data-correct="true">Líbero</button>
-          <button onclick="verificarRespuesta(this)" data-correct="false">Opuesto</button>
-          <button onclick="verificarRespuesta(this)" data-correct="false">Armador</button>
-        </div>
-      
-        <p class="resultado"></p>
-        <a href="#" class="btn" onclick="reiniciarQuiz(this)" style="display: none;">Intentar de nuevo</a>
-        <a href="#" class="btn" onclick="iniciarQuiz(this)">Iniciar Quiz</a>
-      </div>
-      
-      
-      <script>
-        function iniciarQuiz(elemento) {
-          const card = elemento.closest(".card");
-          card.querySelector(".pregunta").textContent = "¿Cuál es la posición que recibe el saque?";
-          card.querySelector(".opciones").style.display = "block";
-          elemento.style.display = "none"; // Oculta "Iniciar Quiz"
-          card.querySelector(".resultado").textContent = "";
-          card.querySelector(".resultado").style.color = "";
-        }
-      
-        function verificarRespuesta(boton) {
-          const card = boton.closest(".card");
-          const esCorrecta = boton.getAttribute("data-correct") === "true";
-          const resultado = card.querySelector(".resultado");
-      
-          if (esCorrecta) {
-            resultado.textContent = "¡Correcto! 🎉";
-            resultado.style.color = "green";
-          } else {
-            resultado.textContent = "Incorrecto. Intenta otra vez. 😢"; 
-            resultado.style.color = "red";
-          }
-      
-          const botones = card.querySelectorAll(".opciones button");
-          botones.forEach(b => b.disabled = true);
-      
-          // Muestra el botón "Intentar de nuevo"
-          card.querySelector('a[onclick^="reiniciarQuiz"]').style.display = "inline-block";
-        }
-      
-        function reiniciarQuiz(elemento) {
-          const card = elemento.closest(".card");
-      
-          // Restablece los textos y botones
-          card.querySelector(".pregunta").textContent = "¿Sabes las reglas? ¡Pon a prueba tu conocimiento!";
-          card.querySelector(".opciones").style.display = "none";
-          card.querySelector(".resultado").textContent = "";
-          card.querySelector(".resultado").style.color = "";
-      
-          const botones = card.querySelectorAll(".opciones button");
-          botones.forEach(b => b.disabled = false);
-      
-          // Oculta el botón de reinicio, muestra el de iniciar
-          elemento.style.display = "none";
-          card.querySelector('a[onclick^="iniciarQuiz"]').style.display = "inline-block";
-        }
-      </script>
-      
-      
+  <section id="planteamiento">
+    <h2>Planteamiento del problema</h2>
+    <p>Describe claramente cuál es el problema que busca solucionar el proyecto.</p>
+  </section>
+
+  <section id="justificacion">
+    <h2>Justificación</h2>
+    <p>Explica por qué es importante llevar a cabo este proyecto y a quién beneficia.</p>
+  </section>
+
+  <section id="objetivos">
+    <h2>Objetivos</h2>
+    <h3>Objetivo general</h3>
+    <p>El objetivo principal del proyecto.</p>
+
+    <h3>Objetivos específicos</h3>
+    <ul>
+      <li>Objetivo específico 1</li>
+      <li>Objetivo específico 2</li>
+      <li>Objetivo específico 3</li>
+    </ul>
+  </section>
+
+  <section id="metodologia">
+    <h2>Metodología</h2>
+    <p>Explica el paso a paso que seguirás para desarrollar el proyecto.</p>
+  </section>
+
+  <section id="cronograma">
+    <h2>Cronograma de actividades</h2>
+    <p>Tabla o lista de actividades con sus respectivas fechas.</p>
+  </section>
+
+  <section id="alcance">
+    <h2>Alcance</h2>
+    <p>Define hasta dónde llegará tu proyecto (funcionalidades, público objetivo, etc.).</p>
+  </section>
+
+  <section id="impacto">
+    <h2>Impacto del proyecto</h2>
+    <p>Qué efecto o cambio positivo esperas lograr con el proyecto.</p>
+  </section>
+</div>
+
+<footer>
+  <p>Proyecto realizado por [Tu Nombre] - [Nombre de tu institución]</p>
+</footer>
+
 </body>
 </html>
